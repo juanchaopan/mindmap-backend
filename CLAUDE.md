@@ -23,9 +23,9 @@ Package root: `com.p8499.mindmap`
 
 ```
 DemoApplication.kt       — entry point
-SecurityConfig.kt        — SecurityFilterChain; JWT validation; /public/** open, all else requires auth
+SecurityConfig.kt        — SecurityFilterChain; JWT validation; /swagger-ui/**, /v3/api-docs/** open, all else requires auth
 JacksonConfig.kt         — ObjectMapper bean: JavaTimeModule, ISO-8601 dates (no timestamps)
-DemoController.kt        — GET /public/hello, GET /api/me
+OpenApiConfig.kt         — OpenAPI bean; global bearerAuth (HTTP Bearer JWT) security scheme; Swagger UI at /swagger-ui.html
 
 workspace/
   Workspace.kt           — JPA entity: id (UUID), name, owner, createdAt, updatedAt (OffsetDateTime)
@@ -41,3 +41,4 @@ workspace/
 - `spring.jpa.hibernate.ddl-auto=update` — Hibernate auto-creates/migrates tables
 - Controller tests use `MockMvcBuilders.standaloneSetup` + `SecurityContextHolder` (no Spring context; `@WebMvcTest` is broken in Spring Boot 4)
 - Jackson configured via `ObjectMapper` `@Bean` directly (`Jackson2ObjectMapperBuilderCustomizer` removed in Spring Boot 4)
+- OpenAPI docs via `springdoc-openapi-starter-webmvc-ui:3.0.1` (v3.x required for Spring Boot 4)
