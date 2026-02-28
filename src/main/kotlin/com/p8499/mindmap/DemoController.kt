@@ -1,4 +1,4 @@
-package com.example.demo
+package com.p8499.mindmap
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.security.oauth2.jwt.Jwt

@@ -1,4 +1,4 @@
-package com.example.demo
+package com.p8499.mindmap
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
